@@ -1,0 +1,33 @@
+{
+  "info": {
+    "name": "Student CRUD API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api/students" },
+    { "key": "id", "value": "PASTE_STUDENT_ID_HERE" }
+  ],
+  "item": [
+    {
+      "name": "Create student (POST)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Ali Khan\",\n  \"email\": \"ali@example.com\",\n  \"age\": 21,\n  \"course\": \"Computer Science\"\n}" },
+        "url": "{{baseUrl}}"
+      }
+    },
+    { "name": "Get all students (GET)", "request": { "method": "GET", "url": "{{baseUrl}}" } },
+    { "name": "Get single student (GET)", "request": { "method": "GET", "url": "{{baseUrl}}/{{id}}" } },
+    {
+      "name": "Update student (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Ali Khan\",\n  \"email\": \"ali@example.com\",\n  \"age\": 22,\n  \"course\": \"Software Engineering\"\n}" },
+        "url": "{{baseUrl}}/{{id}}"
+      }
+    },
+    { "name": "Delete student (DELETE)", "request": { "method": "DELETE", "url": "{{baseUrl}}/{{id}}" } }
+  ]
+}
